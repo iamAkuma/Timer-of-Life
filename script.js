@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to format age
     function formatAge(age) {
-        return `${padNumber(age.years)}:${padNumber(age.months)}:${padNumber(age.days)}:${padNumber(age.hours)}:${padNumber(age.minutes)}:${padNumber(age.seconds)}`;
+        return `${padNumber(age.years)}Y:${padNumber(age.months)}M:${padNumber(age.days)}D:${padNumber(age.hours)}H:${padNumber(age.minutes)}M:${padNumber(age.seconds)}S`;
     }
 
     // Function to add leading zero if number is less than 10
@@ -50,5 +50,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Hide input fields and show age display
         document.getElementById('dobContainer').style.display = 'none';
         ageDisplay.style.display = 'block';
+
+        // Update age display every second
+        setInterval(function () {
+            updateAgeDisplay(dob);
+        }, 1000);
     });
 });
