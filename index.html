@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age Counter</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="container">
         <h1>Age Counter</h1>
-        <label for="dob">Enter your date of birth:</label>
-        <input type="date" id="dob" name="dob">
-        <div id="age"></div>
+        <div id="dobContainer">
+            <label for="dob">Enter your date of birth:</label>
+            <input type="date" id="dob" name="dob">
+            <button id="submitBtn">Submit</button>
+        </div>
+        <div id="age" style="display: none;"></div>
     </div>
 
     <script src="script.js"></script>
