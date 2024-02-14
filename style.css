@@ -1,11 +1,34 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif; /* Set font-family to Poppins */
   background-color: #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
+  background: #aa4b6b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3b8d99,
+    #6b6b83,
+    #aa4b6b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3b8d99,
+    #6b6b83,
+    #aa4b6b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.box {
+  border: 2px solid #2016e2; /* Initial border style */
+  border-radius: 5px;
+  padding-top: 50px;
+  padding-bottom: 90px;
+  padding-left: 20px;
+  padding-right: 20px;
+  animation: borderAnimation 5s infinite alternate;
 }
 
 .container {
@@ -19,8 +42,27 @@ input[type="date"] {
 }
 
 #age {
+  font-family: "Poppins", Arial, sans-serif; /* Set font-family to Poppins */
   font-size: 24px;
   margin-top: 20px;
   display: none;
   margin: auto; /* Center the age display */
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-color: #ff0000; /* Start with red */
+  }
+  25% {
+    border-color: #ffff00; /* Change to yellow */
+  }
+  50% {
+    border-color: #00ff00; /* Change to green */
+  }
+  75% {
+    border-color: #0000ff; /* Change to blue */
+  }
+  100% {
+    border-color: #ff00ff; /* Change to magenta */
+  }
 }
