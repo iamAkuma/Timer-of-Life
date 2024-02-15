@@ -56,4 +56,11 @@ document.addEventListener('DOMContentLoaded', function () {
             updateAgeDisplay(dob);
         }, 1000);
     });
+
+    // Event listener for Enter keypress on the input field
+    dobInput.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            submitBtn.click(); // Simulate click on submit button
+        }
+    });
 });

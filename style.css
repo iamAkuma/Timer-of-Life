@@ -41,7 +41,8 @@ body {
 input[type="date"] {
   padding: 8px;
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 20px;
+  font-family: Poppins;
 }
 
 #age {
