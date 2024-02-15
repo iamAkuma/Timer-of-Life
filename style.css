@@ -47,8 +47,8 @@ input[type="date"] {
 
 #age {
   font-family: "Poppins", Arial, sans-serif; /* Set font-family to Poppins */
-  font-size: 24px;
-  margin-top: 20px;
+  font-size: 100px;
+  margin-top: 40px;
   display: none;
   margin: auto; /* Center the age display */
 }

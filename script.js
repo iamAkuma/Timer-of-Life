@@ -2,19 +2,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const dobInput = document.getElementById('dob');
     const submitBtn = document.getElementById('submitBtn');
     const ageDisplay = document.getElementById('age');
-    const backBtn = document.getElementById('backBtn'); // Get the back button element
-
-    // Initially hide the back button
-    backBtn.style.display = 'none';
+    let backBtn; // Declare back button variable
 
     // Function to update age display
     function updateAgeDisplay(dob) {
         const age = calculateAge(dob);
         const formattedAge = formatAge(age);
         ageDisplay.textContent = formattedAge;
-
-        // Show the back button when age display is visible
-        backBtn.style.display = 'block';
     }
 
     // Function to calculate age
@@ -62,6 +56,29 @@ document.addEventListener('DOMContentLoaded', function () {
         setInterval(function () {
             updateAgeDisplay(dob);
         }, 1000);
+
+        // Check if back button exists and remove it before adding a new one
+        if (backBtn) {
+            ageDisplay.removeChild(backBtn);
+        }
+
+        // Create back button
+        backBtn = document.createElement('button');
+        backBtn.textContent = 'Back';
+        backBtn.className = 'button-back';
+
+        // Event listener for back button click
+        backBtn.addEventListener('click', function () {
+            // Show input fields and hide age display
+            document.getElementById('dobContainer').style.display = 'block';
+            ageDisplay.style.display = 'none';
+
+            // Remove back button from the DOM
+            ageDisplay.removeChild(backBtn);
+        });
+
+        // Append back button to age display section
+        ageDisplay.appendChild(backBtn);
     });
 
     // Event listener for Enter keypress on the input field
@@ -69,15 +86,5 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.key === 'Enter') {
             submitBtn.click(); // Simulate click on submit button
         }
-    });
-
-    // Event listener for back button click
-    backBtn.addEventListener('click', function () {
-        // Show input fields and hide age display
-        document.getElementById('dobContainer').style.display = 'block';
-        ageDisplay.style.display = 'none';
-
-        // Hide the back button again
-        backBtn.style.display = 'none';
     });
 });
