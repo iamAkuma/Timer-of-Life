@@ -2,12 +2,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const dobInput = document.getElementById('dob');
     const submitBtn = document.getElementById('submitBtn');
     const ageDisplay = document.getElementById('age');
+    const backBtn = document.getElementById('backBtn'); // Get the back button element
+
+    // Initially hide the back button
+    backBtn.style.display = 'none';
 
     // Function to update age display
     function updateAgeDisplay(dob) {
         const age = calculateAge(dob);
         const formattedAge = formatAge(age);
         ageDisplay.textContent = formattedAge;
+
+        // Show the back button when age display is visible
+        backBtn.style.display = 'block';
     }
 
     // Function to calculate age
@@ -62,5 +69,15 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.key === 'Enter') {
             submitBtn.click(); // Simulate click on submit button
         }
+    });
+
+    // Event listener for back button click
+    backBtn.addEventListener('click', function () {
+        // Show input fields and hide age display
+        document.getElementById('dobContainer').style.display = 'block';
+        ageDisplay.style.display = 'none';
+
+        // Hide the back button again
+        backBtn.style.display = 'none';
     });
 });
