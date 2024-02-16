@@ -4,14 +4,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const ageDisplay = document.getElementById('age');
     const ageContainer = document.getElementById('ageContainer');
     const backBtn = document.getElementById('backBtn');
+    let intervalId;
 
     // Function to update age display
     function updateAgeDisplay(dob) {
         const age = calculateAge(dob);
         const formattedAge = formatAge(age);
         ageDisplay.textContent = formattedAge;
-        ageContainer.style.display = 'block';
-        backBtn.style.display = 'block';
     }
 
     // Function to calculate age
@@ -54,7 +53,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Hide input fields and show age display
             document.getElementById('dobContainer').style.display = 'none';
-            ageContainer.style.display = 'block';
+            ageContainer.style.display = 'block'; // Show age container
+
+            // Update age display every second
+            intervalId = setInterval(function () {
+                updateAgeDisplay(dob);
+            }, 1000);
         } else {
             alert('Please enter your date of birth.');
         }
@@ -77,6 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('dobContainer').style.display = 'block';
         ageContainer.style.display = 'none';
         backBtn.style.display = 'none';
+
+        // Clear the interval when going back
+        clearInterval(intervalId);
     });
 
     // Hide age display and back button initially
