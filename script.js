@@ -2,13 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const dobInput = document.getElementById('dob');
     const submitBtn = document.getElementById('submitBtn');
     const ageDisplay = document.getElementById('age');
-    let backBtn; // Declare back button variable
+    const ageContainer = document.getElementById('ageContainer');
+    const backBtn = document.getElementById('backBtn');
 
     // Function to update age display
     function updateAgeDisplay(dob) {
         const age = calculateAge(dob);
         const formattedAge = formatAge(age);
         ageDisplay.textContent = formattedAge;
+        ageContainer.style.display = 'block';
+        backBtn.style.display = 'block';
     }
 
     // Function to calculate age
@@ -45,46 +48,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Event listener for submit button click
     submitBtn.addEventListener('click', function () {
-        const dob = new Date(dobInput.value);
-        updateAgeDisplay(dob);
-
-        // Hide input fields and show age display
-        document.getElementById('dobContainer').style.display = 'none';
-        ageDisplay.style.display = 'block';
-
-        // Update age display every second
-        setInterval(function () {
+        if (dobInput.value !== '') {
+            const dob = new Date(dobInput.value);
             updateAgeDisplay(dob);
-        }, 1000);
 
-        // Check if back button exists and remove it before adding a new one
-        if (backBtn) {
-            ageDisplay.removeChild(backBtn);
+            // Hide input fields and show age display
+            document.getElementById('dobContainer').style.display = 'none';
+            ageContainer.style.display = 'block';
+        } else {
+            alert('Please enter your date of birth.');
         }
-
-        // Create back button
-        backBtn = document.createElement('button');
-        backBtn.textContent = 'Back';
-        backBtn.className = 'button-back';
-
-        // Event listener for back button click
-        backBtn.addEventListener('click', function () {
-            // Show input fields and hide age display
-            document.getElementById('dobContainer').style.display = 'block';
-            ageDisplay.style.display = 'none';
-
-            // Remove back button from the DOM
-            ageDisplay.removeChild(backBtn);
-        });
-
-        // Append back button to age display section
-        ageDisplay.appendChild(backBtn);
     });
 
     // Event listener for Enter keypress on the input field
     dobInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
-            submitBtn.click(); // Simulate click on submit button
+            if (dobInput.value !== '') {
+                submitBtn.click(); // Simulate click on submit button
+            } else {
+                alert('Please enter your date of birth.');
+            }
         }
     });
+
+    // Event listener for back button click
+    backBtn.addEventListener('click', function () {
+        // Show input fields and hide age display
+        document.getElementById('dobContainer').style.display = 'block';
+        ageContainer.style.display = 'none';
+        backBtn.style.display = 'none';
+    });
+
+    // Hide age display and back button initially
+    ageContainer.style.display = 'none';
+    backBtn.style.display = 'none';
 });
