@@ -149,6 +149,6 @@ input[type="date"] {
   position: absolute;
   bottom: 10px; /* Adjust the distance from the bottom */
   right: 10px; /* Adjust the distance from the right */
-  color: rgb(204, 253, 8); /* Set the color */
+  color: #cdff04; /* Set the color */
   font-size: 10px; /* Set the font size */
 }
