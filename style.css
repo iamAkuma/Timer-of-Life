@@ -47,9 +47,8 @@ input[type="date"] {
 
 #age {
   font-family: "Poppins", Arial, sans-serif; /* Set font-family to Poppins */
-  font-size: 100px;
+  font-size: 40px;
   margin-top: 40px;
-  display: none;
   margin: auto; /* Center the age display */
 }
 
@@ -144,16 +143,4 @@ input[type="date"] {
   background-color: #333;
   margin-top: 30px; /* Adjust the margin-top value */
   display: none; /* Initially hide the back button */
-}
-
-@keyframes glowing-button-85 {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
 }

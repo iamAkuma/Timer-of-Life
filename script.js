@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitBtn = document.getElementById('submitBtn');
     const ageDisplay = document.getElementById('age');
     const ageContainer = document.getElementById('ageContainer');
-    const backBtn = document.getElementById('backBtn');
     let intervalId;
 
     // Function to update age display
@@ -75,18 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Event listener for back button click
-    backBtn.addEventListener('click', function () {
-        // Show input fields and hide age display
-        document.getElementById('dobContainer').style.display = 'block';
-        ageContainer.style.display = 'none';
-        backBtn.style.display = 'none';
-
-        // Clear the interval when going back
-        clearInterval(intervalId);
-    });
-
-    // Hide age display and back button initially
+    // Hide age display initially
     ageContainer.style.display = 'none';
-    backBtn.style.display = 'none';
 });
