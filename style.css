@@ -51,8 +51,8 @@ input[type="date"] {
   margin-top: 40px;
   margin: auto; /* Center the age display */
   font-weight: bolder;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
-    1px 1px 0 #000000; /* Add a white outline */
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff, 0px 0px 15px #fff; /* Adjust shadow spread for a bolder outline */
 }
 
 @keyframes borderAnimation {
