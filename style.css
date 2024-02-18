@@ -155,3 +155,15 @@ input[type="date"] {
   color: #cdff04; /* Set the color */
   font-size: 10px; /* Set the font size */
 }
+
+.dob {
+  color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000, 0px 0px 15px #000; /* Adjust shadow spread for a bolder outline */
+}
+
+h1 {
+  color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000, 0px 0px 15px #000; /* Adjust shadow spread for a bolder outline */
+}
